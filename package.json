@@ -5,17 +5,23 @@
   "license": "MIT",
   "scripts": {
     "start": "babel-node src/index",
-    "start:dev": "nodemon --exec babel-node src/index"
+    "start:dev": "nodemon --exec babel-node src/index",
+    "test": "NODE_ENV=test mocha --require @babel/register ./src",
+    "test:dev": "NODE_ENV=test mocha --require @babel/register  --watch  --watch-extensions js ./src/*.test.js ./src"
   },
   "dependencies": {
+    "@babel/register": "^7.0.0",
     "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
     "cors": "^2.8.5",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "supertest": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.3.4",
+    "mocha": "^6.0.2",
     "nodemon": "^1.18.10"
   }
 }
